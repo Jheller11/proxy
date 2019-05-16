@@ -1,8 +1,15 @@
 const router = require('express').Router()
+const axios = require('axios')
 
-router.get('/', (req, res, next) => {
-  console.log(process.env.WEATHER_APP_WEATHER_API_KEY)
-  res.json(process.env.WEATHER_APP_WEATHER_API_KEY).status(200)
+router.post('/', async (req, res, next) => {
+  let data = () =>
+    axios
+      .get(req.body.url + `&APPID=${process.env.WEATHER_APP_WEATHER_API_KEY}`)
+      .then(response => {
+        return response.data
+      })
+      .catch(err => next(err))
+  data().then(data => res.json(data))
 })
 
 module.exports = router

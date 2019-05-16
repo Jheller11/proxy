@@ -5,6 +5,7 @@ const override = require('method-override')
 const bodyParser = require('body-parser')
 const helmet = require('helmet')
 const compression = require('compression')
+const cors = require('cors')
 require('dotenv').config()
 
 // config
@@ -12,6 +13,7 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(override('_method'))
 app.use(compression())
 app.use(helmet())
+app.use(cors())
 
 // import controllers
 const weatherController = require('./controllers/weather')
