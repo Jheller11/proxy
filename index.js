@@ -5,6 +5,7 @@ const override = require('method-override')
 const bodyParser = require('body-parser')
 const helmet = require('helmet')
 const compression = require('compression')
+require('dotenv').config()
 
 // config
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -12,7 +13,11 @@ app.use(override('_method'))
 app.use(compression())
 app.use(helmet())
 
-// controllers
+// import controllers
+const weatherController = require('./controllers/weather')
+
+// assign controllers
+app.use('/weather', weatherController)
 
 // home route
 app.get('/', (req, res, next) => {
