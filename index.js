@@ -28,7 +28,11 @@ app.get('/', (req, res, next) => {
 
 // error handler
 app.use((error, req, res, next) => {
-  if (error) res.send(error)
+  if (error) {
+    console.log(error)
+    res.status(500)
+    res.json({ error: 'Error' })
+  }
   next()
 })
 // set port

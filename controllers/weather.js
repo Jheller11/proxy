@@ -8,13 +8,13 @@ const processNewRequest = require('../utils').processNewRequest
 // Current weather information => requested by App.js
 router.post('/current', async (req, res, next) => {
   let url = req.body.url + `&APPID=${process.env.WEATHER_APP_WEATHER_API_KEY}`
-  processNewRequest(url, res)
+  processNewRequest(url, res, next)
 })
 
 // Forecast information => requested by ForecastContainer.js
 router.post('/forecast', async (req, res, next) => {
   let url = req.body.url + `&APPID=${process.env.WEATHER_APP_WEATHER_API_KEY}`
-  processNewRequest(url, res)
+  processNewRequest(url, res, next)
 })
 
 module.exports = router
