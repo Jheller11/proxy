@@ -1,15 +1,20 @@
 const router = require('express').Router()
-const axios = require('axios')
+const processNewRequest = require('../utils').processNewRequest
 
-router.post('/', async (req, res, next) => {
-  let data = () =>
-    axios
-      .get(req.body.url + `&APPID=${process.env.WEATHER_APP_WEATHER_API_KEY}`)
-      .then(response => {
-        return response.data
-      })
-      .catch(err => next(err))
-  data().then(data => res.json(data))
+// proxy for requests from weather application
+// github repo: https://github.com/Jheller11/weather
+// deployed application: https://j-weather.surge.sh
+
+// Current weather information => requested by App.js
+router.post('/current', async (req, res, next) => {
+  let url = req.body.url + `&APPID=${process.env.WEATHER_APP_WEATHER_API_KEY}`
+  processNewRequest(url, res)
+})
+
+// Forecast information => requested by ForecastContainer.js
+router.post('/forecast', async (req, res, next) => {
+  let url = req.body.url + `&APPID=${process.env.WEATHER_APP_WEATHER_API_KEY}`
+  processNewRequest(url, res)
 })
 
 module.exports = router
