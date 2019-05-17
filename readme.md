@@ -28,3 +28,8 @@ TBD
 - [ ] Set up dashboard (password protected) to view activity
 - [ ] Configure NASA app to send requests to this server
 - [ ] Deploy
+
+## Dashboard (password protected)
+
+- image
+- url

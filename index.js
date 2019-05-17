@@ -15,6 +15,11 @@ app.use(compression())
 app.use(helmet())
 app.use(cors())
 
+// custom middleware
+// TODO add function to log requests to server while in production mode.
+// items to save => incoming req origin, data attached
+// possibly add to error function => save req and whether successfully handled or error
+
 // import controllers
 const weatherController = require('./controllers/weather')
 
@@ -29,7 +34,7 @@ app.get('/', (req, res, next) => {
 // error handler
 app.use((error, req, res, next) => {
   if (error) {
-    console.log(error)
+    // if env == production => save error to db
     res.status(500)
     res.json({ error: 'Error' })
   }
