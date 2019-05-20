@@ -13,7 +13,7 @@ block content
         h4 Admin Login
         if message
             div #{message}
-        form(method='POST' action='/admin/login')
+        form(method='POST' action='/admin/dashboard')
             label(for='password') Enter Password: 
             input(type='password' name='password' minlength=5 required)
             button(type='submit') Submit

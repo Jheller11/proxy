@@ -41,9 +41,21 @@ const projects = [
   }
 ]
 
-// password protected route for viewing dashboard
+// restrict access direct to dashboard
+router.get('/dashboard', (req, res, next) => {
+  res.locals.title += ' - Home'
+  res.render('home', {
+    projects: projects,
+    message:
+      'Access to "/admin/dashboard" restricted. Please enter a valid password to continue.'
+  })
+})
 
 // post route for recieving and verifying password
+router.post('/dashboard', checkPassword, (req, res, next) => {
+  res.locals.title += ' - Dashboard'
+  res.render('dashboard')
+})
 
 // home screen for API
 router.get('/', (req, res, next) => {
