@@ -25,18 +25,25 @@ const adminController = require('./controllers/admin')
 const weatherController = require('./controllers/weather')
 const nasaController = require('./controllers/nasa')
 
+// view engine (admin pages only)
+app.set('views', './views')
+app.set('view engine', 'pug')
+
+// pass title and user to all views
+app.use((req, res, next) => {
+  res.locals.user = req.user
+  res.locals.title = 'JH Node Server'
+  next()
+})
+
 // assign controllers
 app.use('/admin', adminController)
 app.use('/weather', weatherController)
 app.use('/nasa', nasaController)
 
-// view engine (admin pages only)
-app.set('views', './views')
-app.set('view engine', 'pug')
-
 // home route
 app.get('/', (req, res, next) => {
-  res.send('Welcome to my server.').status(200)
+  res.render('home')
 })
 
 // error handler
