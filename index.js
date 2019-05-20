@@ -7,6 +7,8 @@ const helmet = require('helmet')
 const compression = require('compression')
 const cors = require('cors')
 require('dotenv').config()
+const path = require('path')
+const favicon = require('serve-favicon')
 
 // config
 app.use(bodyParser.urlencoded({ extended: true }))
@@ -14,6 +16,8 @@ app.use(override('_method'))
 app.use(compression())
 app.use(helmet())
 app.use(cors())
+app.use(express.static('public'))
+app.use(favicon(path.join(__dirname, 'public', 'media', 'favicon.ico')))
 
 // custom middleware
 // TODO add function to log requests to server while in production mode.
