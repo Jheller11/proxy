@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const checkPassword = require('../utils').checkPassword
 
 const projects = [
   {
@@ -40,6 +41,11 @@ const projects = [
   }
 ]
 
+// password protected route for viewing dashboard
+
+// post route for recieving and verifying password
+
+// home screen for API
 router.get('/', (req, res, next) => {
   res.locals.title += ' - Home'
   res.render('home', { projects: projects })

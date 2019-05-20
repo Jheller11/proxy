@@ -6,6 +6,19 @@ block head
 block content
     h1 Node Server
     div
+        h4 Description
+        p Welcome to the home page for my proxy server. This server is used for some of my personal projects.  Access to usage and errors is available under the admin section.  This data is password protected and may only be viewed by authorized users.
+    hr
+    div
+        h4 Admin Login
+        if message
+            div #{message}
+        form(method='POST' action='/admin/login')
+            label(for='password') Enter Password: 
+            input(type='password' name='password' minlength=5 required)
+            button(type='submit') Submit
+    hr
+    div
         h4 Project List
         ul
             each project in projects
@@ -18,3 +31,4 @@ block content
                     ul
                         each api in project.apis
                             li #{api.name} (#{api.url})
+    hr
