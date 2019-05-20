@@ -15,6 +15,7 @@ const projects = [
           'https://developers.google.com/maps/documentation/javascript/tutorial'
       }
     ],
+    access: '/weather',
     completed: false
   },
   {
@@ -34,11 +35,13 @@ const projects = [
         url: 'https://api.nasa.gov/api.html#Images'
       }
     ],
+    access: '/nasa',
     completed: false
   }
 ]
 
 router.get('/', (req, res, next) => {
+  res.locals.title += ' - Home'
   res.render('home', { projects: projects })
 })
 

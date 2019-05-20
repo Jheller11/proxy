@@ -4,4 +4,17 @@ block head
     link(rel="stylesheet" href="/stylesheets/home.css")
 
 block content
-    h1 'Hello and welcome'
+    h1 Node Server
+    div
+        h4 Project List
+        ul
+            each project in projects
+                li 
+                    .title #{project.name}
+                    a(href=`${project.url}` target='_blank') View (external)
+                    div Access Point: #{project.access}
+                    div Completed: #{project.completed}
+                    div API's Used: 
+                    ul
+                        each api in project.apis
+                            li #{api.name} (#{api.url})
