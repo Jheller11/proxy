@@ -47,7 +47,7 @@ app.use('/nasa', nasaController)
 
 // home route
 app.get('/', (req, res, next) => {
-  res.render('home')
+  res.redirect('/admin')
 })
 
 // error handler
