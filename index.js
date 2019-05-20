@@ -21,10 +21,18 @@ app.use(cors())
 // possibly add to error function => save req and whether successfully handled or error
 
 // import controllers
+const adminController = require('./controllers/admin')
 const weatherController = require('./controllers/weather')
+const nasaController = require('./controllers/nasa')
 
 // assign controllers
+app.use('/admin', adminController)
 app.use('/weather', weatherController)
+app.use('/nasa', nasaController)
+
+// view engine (admin pages only)
+app.set('views', './views')
+app.set('view engine', 'pug')
 
 // home route
 app.get('/', (req, res, next) => {
