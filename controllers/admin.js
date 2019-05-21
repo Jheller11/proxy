@@ -57,6 +57,15 @@ router.post('/dashboard', checkPassword, (req, res, next) => {
   res.render('dashboard')
 })
 
+// invalid passcode
+router.get('/denied', (req, res, next) => {
+  res.locals.title += ' - Home'
+  res.render('home', {
+    projects: projects,
+    message: 'Access code incorrect. Please try again.'
+  })
+})
+
 // home screen for API
 router.get('/', (req, res, next) => {
   res.locals.title += ' - Home'

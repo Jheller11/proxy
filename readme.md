@@ -20,14 +20,14 @@ Node.js proxy server for various personal projects.
 
 ### URL
 
-TBD
+https://jh-node-proxy.herokuapp.com/admin
 
 ### To Do
 
 - [ ] Set up model and db connection for logging requests/errors
 - [ ] Set up dashboard (password protected) to view activity
 - [ ] Configure NASA app to send requests to this server
-- [ ] Deploy
+- [x] Deploy
 
 ## Dashboard (password protected)
 

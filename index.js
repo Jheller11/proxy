@@ -56,13 +56,14 @@ app.use((error, req, res, next) => {
     // if env == production => save error to db
     console.log(error)
     res.status(500)
-    res.json({ error: 'Error' })
+    res.json({ error: error })
   }
   next()
 })
 
 // 404
 app.use((req, res, next) => {
+  console.log('here')
   res.status(404).render('404')
 })
 

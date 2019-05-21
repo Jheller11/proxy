@@ -12,14 +12,10 @@ const utils = {
       .catch(err => next(err))
   },
   checkPassword: (req, res, next) => {
-    if (req.body.password) {
-      // check password
+    if (req.body.password === process.env.ADMIN_PASSCODE) {
       next()
     } else {
-      res.render('home', {
-        message:
-          'Access restricted: A password is required to view the page you requested.'
-      })
+      res.redirect('/admin/denied')
     }
   }
 }
