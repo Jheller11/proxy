@@ -63,7 +63,7 @@ app.use((error, req, res, next) => {
 
 // 404
 app.use((req, res, next) => {
-  res.status(404).send("Sorry can't find that!")
+  res.status(404).render('404')
 })
 
 // set port
