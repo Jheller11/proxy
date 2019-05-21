@@ -1,18 +1,19 @@
 extends layout.pug
 
 block head
-    link(rel="stylesheet" href="/stylesheets/home.css")
+    
 
 block content
     h1 Node Server
     div
-        h4 Description
-        p Welcome to the home page for my proxy server. This server is used for some of my personal projects.  Access to usage and errors is available under the admin section.  This data is password protected and may only be viewed by authorized users.
+        h4 Server Home Page
+        p 
+            a(href="https://github.com/Jheller11/proxy" target='_blank') View on Github
     hr
     div
         h4 Admin Login
         if message
-            div #{message}
+            div.alertMessage #{message}
         form(method='POST' action='/admin/dashboard')
             label(for='password') Enter Password: 
             input(type='password' name='password' minlength=5 required)
@@ -20,9 +21,9 @@ block content
     hr
     div
         h4 Project List
-        ul
+        ol
             each project in projects
-                li 
+                li.projectItem
                     .title #{project.name}
                     a(href=`${project.url}` target='_blank') View (external)
                     div Access Point: #{project.access}
@@ -30,5 +31,7 @@ block content
                     div API's Used: 
                     ul
                         each api in project.apis
-                            li #{api.name} (#{api.url})
+                            li 
+                                div #{api.name} 
+                                a(href=`${api.url}` target='_blank') #{api.url}
     hr

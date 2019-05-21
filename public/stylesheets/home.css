@@ -1,0 +1,21 @@
+body {
+  font-family: 'Quicksand', sans-serif;
+  padding: 1rem;
+}
+
+a {
+  color: red;
+}
+
+.alertMessage {
+  border: 1px solid red;
+  background: rgba(255, 0, 0, 0.5);
+}
+
+.projectItem::after {
+  content: '------------';
+}
+
+.title {
+  color: blue;
+}
