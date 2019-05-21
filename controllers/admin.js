@@ -17,7 +17,7 @@ const projects = [
       }
     ],
     access: '/weather',
-    completed: false
+    completed: true
   },
   {
     name: 'NASA Image Search',
