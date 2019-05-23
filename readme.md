@@ -26,7 +26,7 @@ https://jh-node-proxy.herokuapp.com/admin
 
 - [ ] Set up model and db connection for logging requests/errors
 - [ ] Set up dashboard (password protected) to view activity
-- [ ] Configure NASA app to send requests to this server
+- [x] Configure NASA app to send requests to this server
 - [x] Deploy
 
 ## Dashboard (password protected)

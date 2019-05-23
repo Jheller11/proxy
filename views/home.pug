@@ -8,7 +8,7 @@ block content
     div
         h4 Server Home Page
         p 
-            a(href="https://github.com/Jheller11/proxy" target='_blank') View on Github
+            a(href="https://github.com/Jheller11/proxy" target='_blank') Source Code (Github)
     hr
     div
         h4 Admin Login
@@ -21,7 +21,7 @@ block content
     hr
     div
         h4 Project List
-        ol
+        ul
             each project in projects
                 li.projectItem
                     .title #{project.name}
