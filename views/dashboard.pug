@@ -4,4 +4,10 @@ block head
     link(rel="stylesheet" href="/stylesheets/dashboard.css")
 
 block content
-    div you reached it
+    h1 Node Server
+    h4 Admin Dashboard
+    hr
+    h4 Application Activity
+        p Total Requests: #{requests.length}
+        each request in requests
+            p #{request.path}
