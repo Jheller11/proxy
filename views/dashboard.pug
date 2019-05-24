@@ -7,7 +7,13 @@ block content
     h1 Node Server
     h4 Admin Dashboard
     hr
-    h4 Application Activity
-        p Total Requests: #{requests.length}
-        each request in requests
-            p #{request.path}
+    h2 Application Activity
+    p Total Requests: 
+        span.data #{requests.length}
+    h3 By Application:
+    p NASA Image Search:
+        - let nasa = requests.filter(req => req.application === 'nasa')
+        span.data  #{nasa.length}
+    p Weather:
+        - let weather = requests.filter(req => req.application === 'weather')
+        span.data  #{weather.length}        

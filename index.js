@@ -63,7 +63,6 @@ app.use((error, req, res, next) => {
 
 // 404
 app.use((req, res, next) => {
-  console.log('here')
   res.status(404).render('404')
 })
 
