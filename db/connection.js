@@ -2,7 +2,9 @@ const mongoose = require('mongoose')
 mongoose.Promise = Promise
 
 let db =
-  process.env.NODE_ENV === 'production' ? '' : 'mongodb://localhost/node-server'
+  process.env.NODE_ENV === 'production'
+    ? process.env.MLAB_URL
+    : 'mongodb://localhost/node-server'
 
 mongoose.connect(db, { useNewUrlParser: true })
 

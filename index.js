@@ -28,7 +28,7 @@ app.use(favicon(path.join(__dirname, 'public', 'media', 'favicon.ico')))
 const adminController = require('./controllers/admin')
 const weatherController = require('./controllers/weather')
 const nasaController = require('./controllers/nasa')
-const pagesController = require('./controllers/other')
+const pagesController = require('./controllers/pages')
 
 // view engine (admin pages only)
 app.set('views', './views')
