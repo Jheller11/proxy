@@ -6,7 +6,7 @@ block head
 block content
     header
         h1
-            a.title(href='https://jh-node-proxy.herokuapp.com/') Jeff's Server
+            a.title(href='https://jh-node-proxy.herokuapp.com/') Node Server
     main
         content
             .about
@@ -15,6 +15,7 @@ block content
             hr
             .projects
                 h3 Projects
+                p These projects request data from 3rd party APIs through this server.
                 each project in projects
                     .project-item
                         div
@@ -27,13 +28,26 @@ block content
                                 li 
                                     div 
                                         a(href=`${api.url}` target='_blank') #{api.name}
+            hr
+            .other
+                h3 Page Hits
+                p These projects alert the server when viewed.
+                each view in views
+                    .view-item
+                        div
+                            a(href=`${view.url}` target='_blank') #{view.name}
         aside
             .admin
                 h3 Admin Login
                 form(method='POST' action='/admin/dashboard')
-                    label(for='password') Enter Password: 
-                    input(type='password' name='password' minlength=5 required)
-                    button(type='submit') Submit
+                    div.form-group
+                        label(for='username') User: 
+                        input(type="text" name='username' autocomplete='username')
+                    div.form-group
+                        label(for='password') Enter Password: 
+                        input(type='password' name='password' minlength=5 autocomplete='current-password' required)
+                    div.button
+                        button(type='submit') Submit
                     div
                         small Passcode is required for access to dashboard.
                 if message

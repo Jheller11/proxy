@@ -38,9 +38,11 @@ const projects = [
       }
     ],
     access: '/nasa',
-    completed: false
+    completed: true
   }
 ]
+
+const views = [{ name: 'Portfolio', url: 'https://jheller11.github.io' }]
 
 // restrict access direct to dashboard
 router.get('/dashboard', (req, res, next) => {
@@ -65,6 +67,7 @@ router.get('/denied', (req, res, next) => {
   res.locals.title += ' - Home'
   res.render('home', {
     projects: projects,
+    views: views,
     message: 'Access code incorrect. Please try again.'
   })
 })
@@ -72,7 +75,7 @@ router.get('/denied', (req, res, next) => {
 // home screen for API
 router.get('/', (req, res, next) => {
   res.locals.title += ' - Home'
-  res.render('home', { projects: projects })
+  res.render('home', { projects: projects, views: views })
 })
 
 module.exports = router
