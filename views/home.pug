@@ -4,34 +4,51 @@ block head
     
 
 block content
-    h1 Node Server
-    div
-        h4 Server Home Page
-        p 
-            a(href="https://github.com/Jheller11/proxy" target='_blank') Source Code (Github)
-    hr
-    div
-        h4 Admin Login
-        if message
-            div.alertMessage #{message}
-        form(method='POST' action='/admin/dashboard')
-            label(for='password') Enter Password: 
-            input(type='password' name='password' minlength=5 required)
-            button(type='submit') Submit
-    hr
-    div
-        h4 Project List
-        ul
-            each project in projects
-                li.projectItem
-                    .title #{project.name}
-                    a(href=`${project.url}` target='_blank') View (external)
-                    div Access Point: #{project.access}
-                    div Completed: #{project.completed}
-                    div API's Used: 
-                    ul
-                        each api in project.apis
-                            li 
-                                div #{api.name} 
-                                a(href=`${api.url}` target='_blank') #{api.url}
-    hr
+    header
+        h1
+            a.title(href='https://jh-node-proxy.herokuapp.com/') Jeff's Server
+    main
+        content
+            .about
+                h3 About
+                p This application acts as a proxy server for several of my personal projects.  A complete list of projects connected to this server is below.
+            hr
+            .projects
+                h3 Projects
+                each project in projects
+                    .project-item
+                        div
+                            a(href=`${project.url}` target='_blank') #{project.name}
+                        div Access Point: #{project.access}
+                        div Completed: #{project.completed}
+                        div API's Used: 
+                        ul
+                            each api in project.apis
+                                li 
+                                    div 
+                                        a(href=`${api.url}` target='_blank') #{api.name}
+        aside
+            .admin
+                h3 Admin Login
+                form(method='POST' action='/admin/dashboard')
+                    label(for='password') Enter Password: 
+                    input(type='password' name='password' minlength=5 required)
+                    button(type='submit') Submit
+                    div
+                        small Passcode is required for access to dashboard.
+                if message
+                    div.alertMessage #{message}
+
+            hr
+            .links
+                h3 Links
+                ol
+                    li
+                        a(href="https://github.com/Jheller11/proxy" target='_blank') Source Code (Github)
+                    li
+                        a(href="https://mlab.com/" target='_blank') mLab
+                    li
+                        a(href="https://dashboard.heroku.com/apps" target='_blank') Heroku
+
+    footer
+

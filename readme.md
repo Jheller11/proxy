@@ -18,16 +18,24 @@ Node.js proxy server for various personal projects.
    - App: https://j-weather.surge.sh
    - API Keys: Google Maps, OpenWeather
 
+3. Other
+   a. Github portfolio (only page loads)
+   b. ...
+
 ### URL
 
-https://jh-node-proxy.herokuapp.com/admin
+https://jh-node-proxy.herokuapp.com
 
 ### To Do
 
-- [ ] Set up model and db connection for logging requests/errors
-- [ ] Set up dashboard (password protected) to view activity
+- [x] Set up model and db connection for logging requests/errors
+- [x] Set up dashboard (password protected) to view activity
 - [x] Configure NASA app to send requests to this server
 - [x] Deploy
+- [ ] Improve dashboard
+- [ ] Improve landing page
+- [ ] add test coverage
+- [ ] Connect all pages
 
 ## Dashboard (password protected)
 

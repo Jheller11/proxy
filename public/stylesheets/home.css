@@ -1,21 +1,53 @@
+/* 541388-454955-f3eff5-0a2463-2e86ab */
+
 body {
   font-family: 'Quicksand', sans-serif;
   padding: 1rem;
+  color: #0d0a0b;
+  background-color: #f3eff5;
 }
 
 a {
-  color: red;
+  color: #0a2463;
+  text-decoration: none;
 }
 
-.alertMessage {
-  border: 1px solid red;
-  background: rgba(255, 0, 0, 0.5);
+a:hover {
+  text-decoration: underline;
 }
 
-.projectItem::after {
-  content: '------------';
+a:visited {
+  color: #2e86ab;
+}
+
+header {
+  border-bottom: 1px solid #454955;
+  margin-bottom: 0.5rem;
 }
 
 .title {
-  color: blue;
+  color: #454955;
+  text-decoration: none;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 66% 34%;
+}
+
+content {
+  padding: 0 1rem;
+  border-right: 1px solid #454955;
+}
+
+aside {
+  padding: 0 1rem;
+}
+
+.alertMessage {
+  color: #541388;
+}
+
+.project-item::after {
+  content: '-----------';
 }
