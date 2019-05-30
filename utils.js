@@ -31,6 +31,15 @@ const utils = {
       application: req.baseUrl.slice(1)
     })
     next()
+  },
+  saveHit: (req, res, next) => {
+    Request.create({
+      body: {},
+      method: req.originalMethod,
+      path: req.originalUrl,
+      application: req.route.path.slice(1)
+    })
+    next()
   }
 }
 

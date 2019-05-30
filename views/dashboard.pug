@@ -16,4 +16,7 @@ block content
         span.data  #{nasa.length}
     p Weather:
         - let weather = requests.filter(req => req.application === 'weather')
-        span.data  #{weather.length}        
+        span.data  #{weather.length}      
+    p Profile:
+        - let profile = requests.filter(req => req.application === 'profile')
+        span.data  #{profile.length}      

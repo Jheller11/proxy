@@ -28,6 +28,7 @@ app.use(favicon(path.join(__dirname, 'public', 'media', 'favicon.ico')))
 const adminController = require('./controllers/admin')
 const weatherController = require('./controllers/weather')
 const nasaController = require('./controllers/nasa')
+const pagesController = require('./controllers/other')
 
 // view engine (admin pages only)
 app.set('views', './views')
@@ -44,6 +45,7 @@ app.use((req, res, next) => {
 app.use('/admin', adminController)
 app.use('/weather', weatherController)
 app.use('/nasa', nasaController)
+app.use('/pages', pagesController)
 
 // home route
 app.get('/', (req, res, next) => {
