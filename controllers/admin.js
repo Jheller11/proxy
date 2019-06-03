@@ -42,7 +42,10 @@ const projects = [
   }
 ]
 
-const views = [{ name: 'Portfolio', url: 'https://jheller11.github.io' }]
+const views = [
+  { name: 'Portfolio', url: 'https://jheller11.github.io' },
+  { name: 'Pyramids', url: 'https://jheller.github.io/pyramids' }
+]
 
 // restrict access direct to dashboard
 router.get('/dashboard', (req, res, next) => {

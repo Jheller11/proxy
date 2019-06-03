@@ -19,8 +19,8 @@ Node.js proxy server for various personal projects.
    - API Keys: Google Maps, OpenWeather
 
 3. Other
-   a. Github portfolio (only page loads)
-   b. ...
+   a. Github Portfolio
+   b. Pyramids
 
 ### URL
 
