@@ -20,3 +20,6 @@ block content
     p Profile:
         - let profile = requests.filter(req => req.application === 'profile')
         span.data  #{profile.length}      
+    p Pyramids:
+        - let pyramids = requests.filter(req => req.application === 'pyramids')
+        span.data  #{pyramids.length}      

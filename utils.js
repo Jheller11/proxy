@@ -32,6 +32,8 @@ const utils = {
     })
     next()
   },
+  // for projects that don't require 3rd party data
+  // only track page views
   saveHit: (req, res, next) => {
     Request.create({
       body: {},
