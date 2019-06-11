@@ -1,8 +1,56 @@
+/* 541388-454955-f3eff5-0a2463-2e86ab */
+
 body {
   font-family: 'Quicksand', sans-serif;
   padding: 1rem;
+  color: #0d0a0b;
+  background-color: #f3eff5;
 }
 
-.data {
-  color: blue;
+a {
+  color: #2e86ab;
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: underline;
+}
+
+a:visited {
+  color: #1e566d;
+}
+
+header {
+  border-bottom: 1px solid #454955;
+  margin-bottom: 0.5rem;
+}
+
+.title {
+  color: #454955;
+  text-decoration: none;
+}
+
+main {
+  display: grid;
+  grid-template-columns: 66% 34%;
+}
+
+content {
+  padding: 0 1rem;
+  border-right: 1px solid #454955;
+}
+
+aside {
+  padding: 0 1rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+}
+
+.card {
+  border: 1px solid black;
+  margin: 0.5rem;
+  padding: 0.5rem;
 }

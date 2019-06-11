@@ -32,6 +32,8 @@ https://jh-node-proxy.herokuapp.com
 - [x] Set up dashboard (password protected) to view activity
 - [x] Configure NASA app to send requests to this server
 - [x] Deploy
+- [ ] Notifications
+- [ ] Don't log my requests
 - [ ] Improve dashboard
 - [ ] Improve landing page
 - [ ] add test coverage
