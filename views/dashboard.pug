@@ -10,7 +10,7 @@ block content
     main
         content
             .activity
-                h3 Applications
+                h3.box-title Applications
                 p Total requests: #{requests.length}
                 .grid
                     .card
@@ -32,9 +32,7 @@ block content
             hr
         aside
             .log
-                p
-                    a(href="https://mlab.com/databases/nody-proxy/collections/requests", target="_blank", rel="noopener noreferrer") View Raw Data on mLab
-                h5 Recent requests:
+                h3.box-title Recent requests
                 ul.list
                     - var n = requests.length - 1
                     while n > requests.length - 11
@@ -44,6 +42,9 @@ block content
                         - var month = date.getMonth()
                         - var year = date.getFullYear()
                         - var dateString = (month + 1) + "-" + day + "-" + year;
-                        li  #{request.application}, #{dateString}
+                        li.list-item  #{request.application.charAt(0).toUpperCase() + request.application.slice(1)}
+                            div #{dateString}
                         - n--
+                p
+                    a(href="https://mlab.com/databases/nody-proxy/collections/requests", target="_blank", rel="noopener noreferrer") View Raw Data on mLab
             hr

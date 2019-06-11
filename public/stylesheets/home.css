@@ -67,3 +67,7 @@ aside {
 .view-item::after {
   content: '-----------';
 }
+
+.box-title {
+  color: #541388;
+}

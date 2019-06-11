@@ -50,7 +50,21 @@ aside {
 }
 
 .card {
-  border: 1px solid black;
+  border: 1px solid #541388;
   margin: 0.5rem;
   padding: 0.5rem;
+}
+
+.box-title {
+  color: #541388;
+}
+
+.list {
+  list-style: none;
+}
+
+.list-item::after {
+  content: '---';
+  margin: 0 auto;
+  color: #541388;
 }

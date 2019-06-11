@@ -10,11 +10,11 @@ block content
     main
         content
             .about
-                h3 About
+                h3.box-title About
                 p This application acts as a proxy server for several of my personal projects.  A complete list of projects connected to this server is below.
             hr
             .projects
-                h3 Projects
+                h3.box-title Projects
                 p These projects request data from 3rd party APIs through this server.
                 each project in projects
                     .project-item
@@ -30,7 +30,7 @@ block content
                                         a(href=`${api.url}` target='_blank') #{api.name}
             hr
             .other
-                h3 Page Hits
+                h3.box-title Page Hits
                 p These projects alert the server when viewed.
                 each view in views
                     .view-item
@@ -38,7 +38,7 @@ block content
                             a(href=`${view.url}` target='_blank') #{view.name}
         aside
             .admin
-                h3 Admin Login
+                h3.box-title Admin Login
                 form(method='POST' action='/admin/dashboard')
                     div.form-group
                         label(for='username') User: 
@@ -55,7 +55,7 @@ block content
 
             hr
             .links
-                h3 Links
+                h3.box-title Links
                 ol
                     li
                         a(href="https://github.com/Jheller11/proxy" target='_blank') Source Code (Github)
