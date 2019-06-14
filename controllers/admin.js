@@ -52,6 +52,7 @@ router.get('/dashboard', (req, res, next) => {
   res.locals.title += ' - Home'
   res.render('home', {
     projects: projects,
+    views: views,
     message:
       'Access to "/admin/dashboard" restricted. Please enter a valid password to continue.'
   })

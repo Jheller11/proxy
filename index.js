@@ -19,11 +19,6 @@ app.use(cors())
 app.use(express.static('public'))
 app.use(favicon(path.join(__dirname, 'public', 'media', 'favicon.ico')))
 
-// custom middleware
-// TODO add function to log requests to server while in production mode.
-// items to save => incoming req origin, data attached
-// possibly add to error function => save req and whether successfully handled or error
-
 // import controllers
 const adminController = require('./controllers/admin')
 const weatherController = require('./controllers/weather')
