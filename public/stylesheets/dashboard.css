@@ -59,12 +59,32 @@ aside {
   color: #541388;
 }
 
-.list {
+.request-list {
   list-style: none;
 }
 
-.list-item::after {
+.request-item::after {
   content: '---';
   margin: 0 auto;
   color: #541388;
 }
+
+/* Messages */
+
+.flex-between {
+  display: flex;
+  justify-content: space-between;
+}
+
+.text-label {
+  color: #0a2463;
+  font-weight: bolder;
+  padding: 0.25em;
+}
+
+.message-item {
+  border: #0a2463 1px solid;
+  margin: 0.5rem;
+  padding: 0.5rem;
+}
+/* Messages */

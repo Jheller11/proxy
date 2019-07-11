@@ -35,15 +35,29 @@ block content
                 p Total messages: #{messages.length}
                 .message-list
                     each message in messages
-                        div From: #{message.firstName} #{message.lastName}
-                        div Received: #{message.dateReceived}
-                        div Email: #{message.email}
-                        div Message: #{message.message}
+                        .message-item 
+                            .flex-between.message-line
+                                span
+                                    span.text-label From: 
+                                    span #{message.firstName} #{message.lastName}
+                                span
+                                    span.text-label Email: 
+                                    a(href=`mailto:${message.email}`) #{message.email}
+                            .message-line 
+                                span.text-label Received: 
+                                span #{message.dateReceived}
+                            .message-line
+                                span.text-label Message: 
+                                span #{message.message}
+                            .button-group
+                                span placeholder for buttons
+
+                        hr
             hr
         aside
             .log
                 h3.box-title Recent requests
-                ul.list
+                ul.request-list
                     - var n = requests.length - 1
                     while n > requests.length - 11
                         - let request = requests[n]
@@ -52,9 +66,19 @@ block content
                         - var month = date.getMonth()
                         - var year = date.getFullYear()
                         - var dateString = (month + 1) + "-" + day + "-" + year;
-                        li.list-item  #{request.application.charAt(0).toUpperCase() + request.application.slice(1)}
+                        li.request-item  #{request.application.charAt(0).toUpperCase() + request.application.slice(1)}
                             div #{dateString}
                         - n--
                 p
                     a(href="https://mlab.com/databases/nody-proxy/collections/requests", target="_blank", rel="noopener noreferrer") View Raw Data on mLab
+            hr
+            .links
+                h3.box-title Links
+                ol
+                    li
+                        a(href="https://github.com/Jheller11/proxy" target='_blank') Source Code (Github)
+                    li
+                        a(href="https://mlab.com/" target='_blank') mLab
+                    li
+                        a(href="https://dashboard.heroku.com/apps" target='_blank') Heroku
             hr
