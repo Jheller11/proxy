@@ -25,6 +25,7 @@ const adminController = require('./controllers/admin')
 const weatherController = require('./controllers/weather')
 const nasaController = require('./controllers/nasa')
 const pagesController = require('./controllers/pages')
+const profileController = require('./controllers/profile')
 
 // view engine (admin pages only)
 app.set('views', './views')
@@ -42,6 +43,7 @@ app.use('/admin', adminController)
 app.use('/weather', weatherController)
 app.use('/nasa', nasaController)
 app.use('/pages', pagesController)
+app.use('/profile', profileController)
 
 // home route
 app.get('/', (req, res, next) => {
