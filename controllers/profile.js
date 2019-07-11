@@ -3,7 +3,7 @@ const { saveHit } = require('../utils')
 const Message = require('../models/Message')
 
 // profile
-router.get('/', saveHit, (req, res, next) => {
+router.get('/profile', saveHit, (req, res, next) => {
   res.status(200).send()
 })
 
