@@ -30,6 +30,16 @@ block content
                             - let pyramids = requests.filter(req => req.application === 'pyramids')
                         span Requests: #{pyramids.length}
             hr
+            .messages
+                h3.box-title Messages
+                p Total messages: #{messages.length}
+                .message-list
+                    each message in messages
+                        div From: #{message.firstName} #{message.lastName}
+                        div Received: #{message.dateReceived}
+                        div Email: #{message.email}
+                        div Message: #{message.message}
+            hr
         aside
             .log
                 h3.box-title Recent requests

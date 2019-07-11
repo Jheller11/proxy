@@ -1,6 +1,7 @@
 const router = require('express').Router()
 const checkPassword = require('../utils').checkPassword
 const Request = require('../models/Request')
+const Message = require('../models/Message')
 
 const projects = [
   {
@@ -60,10 +61,16 @@ router.get('/dashboard', (req, res, next) => {
 
 // post route for recieving and verifying password
 router.post('/dashboard', checkPassword, (req, res, next) => {
-  Request.find({}).then(requests => {
-    res.locals.title += ' - Dashboard'
-    res.render('dashboard', { requests: requests })
-  })
+  Request.find({})
+    .then(requests => {
+      Message.find({})
+        .then(messages => {
+          res.locals.title += ' - Dashboard'
+          res.render('dashboard', { requests: requests, messages: messages })
+        })
+        .catch(err => next(err))
+    })
+    .catch(err => next(err))
 })
 
 // invalid passcode
