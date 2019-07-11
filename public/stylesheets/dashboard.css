@@ -76,6 +76,11 @@ aside {
   justify-content: space-between;
 }
 
+.flex-around {
+  display: flex;
+  justify-content: space-around;
+}
+
 .text-label {
   color: #0a2463;
   font-weight: bolder;

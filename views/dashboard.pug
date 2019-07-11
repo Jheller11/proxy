@@ -32,7 +32,11 @@ block content
             hr
             .messages
                 h3.box-title Messages
-                p Total messages: #{messages.length}
+                - let unread = messages.filter(message => message.read === false)
+                p.flex-around 
+                    span Total messages: #{messages.length} 
+                    span Unread: #{unread.length} 
+                    span Read: #{messages.length - unread.length}
                 .message-list
                     each message in messages
                         .message-item 
