@@ -29,6 +29,14 @@ block content
                         h5 Pyramids:
                             - let pyramids = requests.filter(req => req.application === 'pyramids')
                         span Requests: #{pyramids.length}
+                    .card
+                        h5 Liverpool Links:
+                            - let liverpool = requests.filter(req => req.application === 'liverpool')
+                        span Requests: #{liverpool.length}
+                    .card
+                        h5 Rentcheck DC:
+                            - let rentcheck = requests.filter(req => req.application === 'rentcheck')
+                        span Requests: #{rentcheck.length}
             hr
             .messages
                 h3.box-title Messages
