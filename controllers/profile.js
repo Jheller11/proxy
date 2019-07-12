@@ -8,7 +8,6 @@ router.get('/profile', saveHit, (req, res, next) => {
 })
 
 // POST ROUTE FOR NEW MESSAGE
-// TODO -> Format message display
 // TODO -> Add action buttons
 // TODO -> routes for action buttons (delete, mark read)
 // TODO -> SMS on new message received

@@ -24,7 +24,6 @@ const utils = {
     // method => req.originalMethod
     // path => req.originalUrl
     // application => req.baseUrl - leading /
-    console.log(req.baseUrl)
     Request.create({
       body: req.body,
       method: req.originalMethod,

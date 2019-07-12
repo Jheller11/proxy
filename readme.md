@@ -34,10 +34,10 @@ https://jh-node-proxy.herokuapp.com
 - [x] Deploy
 - [ ] Notifications
 - [ ] Don't log my requests
-- [ ] Improve dashboard
+- [x] Improve dashboard
 - [ ] Improve landing page
 - [ ] add test coverage
-- [ ] Connect all pages
+- [x] Connect all pages
 
 ## Dashboard (password protected)
 
