@@ -1,5 +1,6 @@
 const axios = require('axios')
 const Request = require('./models/Request')
+const nodemailer = require('nodemailer')
 
 const utils = {
   // receives full compiled url and res object from route/sends response
@@ -42,6 +43,29 @@ const utils = {
       application: req.route.path.slice(1)
     })
     next()
+  },
+  // send email to text alerting me of new message
+  sendNotification: message => {
+    let transporter = nodemailer.createTransport({
+      service: 'Yahoo',
+      auth: {
+        user: process.env.EMAIL_FROM_ADDRESS,
+        pass: process.env.EMAIL_PASSWORD
+      }
+    })
+    let mailOptions = {
+      from: process.env.EMAIL_FROM_ADDRESS,
+      to: process.env.EMAIL_TO_ADDRESS,
+      subject: `New Message from ${message.firstName} ${message.lastName}.`,
+      text: message.message
+    }
+    transporter.sendMail(mailOptions, (error, info) => {
+      if (error) {
+        console.log(error)
+      } else {
+        console.log('Email sent: ' + info.response)
+      }
+    })
   }
 }
 

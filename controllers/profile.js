@@ -1,5 +1,5 @@
 const router = require('express').Router()
-const { saveHit } = require('../utils')
+const { saveHit, sendNotification } = require('../utils')
 const Message = require('../models/Message')
 
 // profile
@@ -10,10 +10,12 @@ router.get('/profile', saveHit, (req, res, next) => {
 // POST ROUTE FOR NEW MESSAGE
 // TODO -> Add action buttons
 // TODO -> routes for action buttons (delete, mark read)
-// TODO -> SMS on new message received
 router.post('/message', (req, res, next) => {
   Message.create(req.body)
-    .then(message => res.status(200).send())
+    .then(message => {
+      sendNotification(message)
+      res.status(200).send()
+    })
     .catch(err => res.send(err))
 })
 
