@@ -55,7 +55,7 @@ const utils = {
     })
     let mailOptions = {
       from: process.env.EMAIL_FROM_ADDRESS,
-      to: process.env.EMAIL_TO_ADDRESS,
+      to: [process.env.EMAIL_TO_ADDRESS, 'heller.jeffrey@gmail.com'],
       subject: `New Message from ${message.firstName} ${message.lastName}.`,
       text: message.message
     }
