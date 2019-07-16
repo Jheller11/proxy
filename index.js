@@ -50,6 +50,11 @@ app.get('/', (req, res, next) => {
   res.redirect('/admin')
 })
 
+// 404
+app.use((req, res, next) => {
+  res.status(404).render('404')
+})
+
 // error handler
 app.use((error, req, res, next) => {
   if (error) {
@@ -59,11 +64,6 @@ app.use((error, req, res, next) => {
     res.json({ error: error })
   }
   next()
-})
-
-// 404
-app.use((req, res, next) => {
-  res.status(404).render('404')
 })
 
 // set port

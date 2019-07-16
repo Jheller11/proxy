@@ -69,18 +69,6 @@ block content
         aside
             .log
                 h3.box-title Recent requests
-                ul.request-list
-                    - var n = requests.length - 1
-                    while n > requests.length - 11
-                        - let request = requests[n]
-                        - var date = new Date(request.dateReceived)
-                        - var day = date.getDate()
-                        - var month = date.getMonth()
-                        - var year = date.getFullYear()
-                        - var dateString = (month + 1) + "-" + day + "-" + year;
-                        li.request-item  #{request.application.charAt(0).toUpperCase() + request.application.slice(1)}
-                            div #{dateString}
-                        - n--
                 p
                     a(href="https://mlab.com/databases/nody-proxy/collections/requests", target="_blank", rel="noopener noreferrer") View Raw Data on mLab
             hr
