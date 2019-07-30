@@ -15,4 +15,4 @@ const linkSchema = new mongoose.Schema({
   }
 })
 
-module.exports = mongoose.model('Link', linkSchema)
+module.exports = mongoose.model('CodeLink', linkSchema)
