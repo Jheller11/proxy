@@ -1,4 +1,5 @@
 const router = require('express').Router()
+const checkLinksPassword = require('../utils').checkLinksPassword
 const CodeLink = require('../models/CodeLink')
 
 // router for my new gatsby project
@@ -11,24 +12,21 @@ router.get('/', (req, res, next) => {
 })
 
 // route for adding a link
-// TODO => protect with admin password (use checkpassword already in utils?)
-router.post('/new', (req, res, next) => {
+router.post('/new', checkLinksPassword, (req, res, next) => {
   CodeLink.create(req.body)
     .then(link => res.status(200).json(link))
     .catch(err => next(err))
 })
 
 // route for deleting a link
-// TODO => protect with admin password (use checkpassword already in utils?)
-router.delete('/:id', (req, res, next) => {
+router.delete('/:id', checkLinksPassword, (req, res, next) => {
   CodeLink.findOneAndDelete({ _id: req.params.id })
     .then(() => res.redirect('/links'))
     .catch(err => next(err))
 })
 
 // route for editing a link
-// TODO => protect with admin password (use checkpassword already in utils?)
-router.put('/:id', (req, res, next) => {
+router.put('/:id', checkLinksPassword, (req, res, next) => {
   CodeLink.findOneAndUpdate({ _id: req.params.id })
     .then(() => res.redirect('/links'))
     .catch(err => next(err))

@@ -13,6 +13,7 @@ const utils = {
       })
       .catch(err => next(err))
   },
+  // check password for access to admin dashboard
   checkPassword: (req, res, next) => {
     if (req.body.password === process.env.ADMIN_PASSCODE) {
       next()
@@ -20,11 +21,9 @@ const utils = {
       res.redirect('/admin/denied')
     }
   },
+  // for projects where this app is used to proxy requests
+  // to 3rd part data.
   saveRequest: (req, res, next) => {
-    // body => req.body
-    // method => req.originalMethod
-    // path => req.originalUrl
-    // application => req.baseUrl - leading /
     Request.create({
       body: req.body,
       method: req.originalMethod,
@@ -66,6 +65,14 @@ const utils = {
         console.log('Email sent: ' + info.response)
       }
     })
+  },
+  // check password for access to controllers/codeBlog.js routes
+  checkLinksPassword: (req, res, next) => {
+    if (req.body.password === process.env.ADMIN_PASSCODE) {
+      next()
+    } else {
+      res.status(500).send()
+    }
   }
 }
 
