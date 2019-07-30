@@ -1,13 +1,5 @@
 const request = require('supertest'),
-  app = require('../index'),
-  Request = require('../models/Request')
-
-console.log('Initializing tests.js')
-
-// pull all requests from test db
-console.log('Pulling Requests')
-let requests = Request.find({})
-console.log(requests.length)
+  app = require('../index')
 
 describe('Index.js', () => {
   // root url should redirect to admin login
@@ -70,6 +62,14 @@ describe('Pages Controller', () => {
   it('responds with 200 on liverpool endpoint', done => {
     request(app)
       .get('/pages/liverpool')
+      .expect(200, done)
+  })
+})
+
+describe('NASA Controller', () => {
+  it('fetches APOD', done => {
+    request(app)
+      .get('/nasa/apod')
       .expect(200, done)
   })
 })
